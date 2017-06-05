@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!--
+        Customize this policy to fit your own app's needs. For more guidance, see:
+            https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy
+        Some notes:
+            * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
+            * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+            * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+                * Enable inline JS: add 'unsafe-inline' to default-src
+        -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *">
+
+    <!-- Required meta tags-->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+
+    <!-- Your app title -->
+    <title>My App</title>
+
+    <!-- This template defaults to the iOS CSS theme. To support both iOS and material design themes, see the Framework7 Tutorial at the link below:
+        http://www.idangero.us/framework7/tutorials/maintain-both-ios-and-material-themes-in-single-app.html
+     -->
+
+    <link rel="stylesheet" href="lib/framework7/css/framework7.ios.min.css">
+    <link rel="stylesheet" href="lib/framework7/css/framework7.ios.colors.min.css">
+
+
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/framework7-icons.css">
+
+    <style type="text/css">
+            body {
+                    /* Setting body margins to 0 to have proper positioning of #container div */
+                    margin: 0;
+                }
+
+                /* #container div with absolute position and 100% width and height so it takes up whole window */
+                #container {
+                    position: absolute;
+                    width: 100%;
+                    height: 100%;
+                }
+        .ui-page { background: white; }
+        .mobbi-btn { height: 120px; font-size: 48px; margin-top: auto; margin-bottom: auto; }
+        .ui-page .ui-header {background: #006d36 !important; }
+        .ui-icon-edit {
+            background-color: #006d36 !important;
+            }
+
+        .ui-grid-a {
+                text-align: center;
+            }
+
+        #topimg {
+    text-align: center;
+    margin: 1em;
+    }
+    #topimg img {
+        display: inline-block;
+        max-width: 1000px; /*resolution of the img*/
+        width: 100%;
+        margin: 3em auto auto auto;
+        }
+
+    </style>
+    <script>
+        var myMessages = $$('.messages')[0].f7Messages;
+         
+        // Now you can use it
+        myMessages.layout();
+    </script>
+
+</head>
+
+<body>
+    <!-- Status bar overlay for full screen mode (PhoneGap) -->
+    <div class="statusbar-overlay"></div>
+
+    <!-- Panels overlay-->
+    <div class="panel-overlay"></div>
+    <!-- Left panel with reveal effect-->
+    <div class="panel panel-left panel-reveal">
+        <div class="content-block">
+            <p>Left panel content goes here</p>
+        </div>
+    </div>
+
+    <!-- Blue - #3542a2 Green - #006d36; -->
+
+    <!-- Views -->
+    <div class="views">
+        <div class="view view-main">
+            <div class="pages navbar-fixed toolbar-fixed">
+                <div class="page" data-page="virtual-assistant">
+
+
+                    <div class="navbar">
+                        <div class="navbar-inner" style="background: #006d36;"">
+                            <!-- We need cool sliding animation on title element, so we have additional "sliding" class -->
+                                <div class="center sliding" style="color: white;">Virtual Assistant</div>
+                                <div class="right">
+                                    <!--
+                                      Right link contains only icon - additional "icon-only" class
+                                      Additional "open-panel" class tells app to open panel when we click on this link
+                                    -->
+                                    <!-- <a href="#" class="link icon-only open-panel"><i class="icon icon-bars"></i></a> -->
+                                </div>                           
+                        </div>                      
+                    </div> 
+
+                    <div class="page-content" style="background: #ffffff;">
+
+                            <div class="toolbar messagebar">
+                    <div class="toolbar-inner"><a href="#" id="sendPhoto" class="link icon-only"><i class="icon icon-camera"></i></a>
+                        <textarea placeholder="Message"></textarea><a href="#" class="link">Send</a>
+                    </div>
+                </div>
+                <div class="page-content messages-content">
+                    <div class="messages">
+                        
+                            <div class="messages-date">Wednesday, May 17 <span>12:58</span></div>
+                              <div class="message message-received">
+                              <div class="message-name">Dumisan</div>
+                                <div class="message-text">Hello</div>
+                              </div>
+                              <div class="message message-received">
+
+                                <div class="message-text">I'm Dumisan from Mobbisurance. I'm here to help u.</div></br>
+                              </div>
+                              <div class="message message-sent">
+                               
+                                <div class="message-text">ok, great.</div>
+                                
+                              </div>
+                              
+                              <div class="message message-sent message-pic">
+                                
+                              </div>
+                              <div class="message message-received">
+                               
+                              </div>
+
+
+                    </div>
+                </div>
+
+
+                       
+                    </div>
+
+                    <div class="toolbar toolbar-bottom tabbar tabbar-labels" style="height: 80px;">
+                        <div class="toolbar-inner" style="background: white; color: white; border: 1px solid #006d36;">
+                            <a href="weather.html" class="tab-link" id="weather">
+                                <i class="f7-icons" style="font-size: 40px; color: #006d36;">cloud</i>
+                                <span class="tabbar-label" style="font-size: 12px; color: #006d36;">Weather</span>
+                            </a>
+                            <a href="virtual-assistant.html" class="tab-link" id="virtual-assistant">
+                                <i class="f7-icons" style="font-size: 40px; color: #006d36;">person</i>
+                                <span class="tabbar-label" style="font-size: 12px; color: #006d36;">Virtual Assistant</span>
+                            </a>
+                            <a href="my-farm.html" class="tab-link" id="my-farm">
+                                <i class="f7-icons" style="font-size: 40px; color: #006d36;">compass_fill</i>
+                                <span class="tabbar-label" style="font-size: 12px; color: #006d36;">My Farm</span>
+                            </a>
+                            <a href="settings.html" class="tab-link" id="settings">
+                                <i class="f7-icons" style="font-size: 40px; color: #006d36;">settings</i>
+                                <span class="tabbar-label" style="font-size: 12px; color: #006d36;">Settings</span>
+                            </a>
+
+                            <a href="notifications.html" class="tab-link" id="notifications">
+                                <i class="f7-icons" style="font-size: 40px; color: #006d36;">email</i>
+                                <span class="tabbar-label" style="font-size: 12px; color: #006d36;">Notifications</span>
+                            </a>
+                        </div>                        
+                    </div>
+
+
+                    <div class="page-content" style="background: #ffffff;">
+                        
+
+                    </div>
+
+                </div>
+            </div>         
+        </div>
+    </div>
+    <script>
+                            var myApp = new Framework7();
+                             
+                            var $$ = Dom7;
+                             
+                            // Conversation flag
+                            var conversationStarted = false;
+                             
+                            // Init Messages
+                            var myMessages = myApp.messages('.messages', {
+                              autoLayout:true
+                            });
+                             
+                            // Init Messagebar
+                            var myMessagebar = myApp.messagebar('.messagebar');
+                             
+                            // Handle message
+                            $$('.messagebar .link').on('click', function () {
+                              // Message text
+                              var messageText = myMessagebar.value().trim();
+                              // Exit if empy message
+                              if (messageText.length === 0) return;
+                             
+                              // Empty messagebar
+                              myMessagebar.clear()
+                             
+                              // Random message type
+                              var messageType = (['sent', 'received'])[Math.round(Math.random())];
+                             
+                              // Avatar and name for received message
+                              var avatar, name;
+                              if(messageType === 'received') {
+                                avatar = 'http://lorempixel.com/output/people-q-c-100-100-9.jpg';
+                                name = 'Kate';
+                              }
+                              // Add message
+                              myMessages.addMessage({
+                                // Message text
+                                text: messageText,
+                                // Random message type
+                                type: messageType,
+                                // Avatar and name:
+                                avatar: avatar,
+                                name: name,
+                                // Day
+                                day: !conversationStarted ? 'Today' : false,
+                                time: !conversationStarted ? (new Date()).getHours() + ':' + (new Date()).getMinutes() : false
+                              })
+                             
+                              // Update conversation flag
+                              conversationStarted = true;
+                            });
+                        </script>
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="lib/framework7/js/framework7.min.js"></script>
+    <script type="text/javascript" src="js/my-app.js"></script>
+</body>
+
+</html>
